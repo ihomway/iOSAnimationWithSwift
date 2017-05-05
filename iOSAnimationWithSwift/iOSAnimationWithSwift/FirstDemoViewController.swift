@@ -61,7 +61,9 @@ class FirstDemoViewController: UIViewController {
 		heading.center.x -= view.bounds.width
 		username.center.x -= view.bounds.width
 		password.center.x -= view.bounds.width
-		loginButton.center.y += view.bounds.height
+		
+		loginButton.center.y += 30.0
+		loginButton.alpha = 0.0
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -85,8 +87,11 @@ class FirstDemoViewController: UIViewController {
 			self.password.center.x += self.view.bounds.width
 		}, completion: nil)
 		
-		UIView.animate(withDuration: 0.5, delay: 0.4, options: .curveEaseInOut, animations: {
-			self.loginButton.center.y -= self.view.bounds.height
+		UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: { 
+			
+			self.loginButton.center.y -= 30.0
+			self.loginButton.alpha = 1.0
+			
 		}, completion: nil)
 	}
 
@@ -97,6 +102,23 @@ class FirstDemoViewController: UIViewController {
 	
 	@IBAction func logAction() {
 		
+		let b = self.loginButton.bounds
+		
+		UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, options: [], animations: { 
+			
+			self.loginButton.bounds = CGRect(x: b.origin.x - 20, y: b.origin.y, width: b.size.width + 80, height: b.size.height)
+			
+		}, completion: { _ in
+			
+		})
+		
+		UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut, animations: { 
+			self.loginButton.center.y += 60
+			self.loginButton.backgroundColor = UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0)
+			self.spinner.alpha = 1.0
+			self.spinner.center = CGPoint(x: 40, y: self.loginButton.frame.height / 2)
+			
+		}, completion: nil)
 	}
     
 
