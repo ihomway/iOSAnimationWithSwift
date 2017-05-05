@@ -8,6 +8,14 @@
 
 import UIKit
 
+func delay(seconds: Double, completion:@escaping ()->()) {
+	
+	DispatchQueue.main.asyncAfter(deadline: .now() + seconds) {
+		completion()
+	}
+	
+}
+
 class FirstDemoViewController: UIViewController {
 	
 	@IBOutlet var loginButton: UIButton!
@@ -93,6 +101,11 @@ class FirstDemoViewController: UIViewController {
 			self.loginButton.alpha = 1.0
 			
 		}, completion: nil)
+		
+		animateCloud(cloud1)
+		animateCloud(cloud2)
+		animateCloud(cloud3)
+		animateCloud(cloud4)
 	}
 
     override func didReceiveMemoryWarning() {
@@ -110,17 +123,84 @@ class FirstDemoViewController: UIViewController {
 			
 		}, completion: { _ in
 			
+			self.showMessages(index: 0)
 		})
 		
-		UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut, animations: { 
-			self.loginButton.center.y += 60
+		UIView.animate(withDuration: 0.33, delay: 0, options: .curveEaseOut, animations: {
+			
+			if self.status.isHidden {
+				self.loginButton.center.y += 60
+			}
+			
 			self.loginButton.backgroundColor = UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0)
 			self.spinner.alpha = 1.0
 			self.spinner.center = CGPoint(x: 40, y: self.loginButton.frame.height / 2)
 			
 		}, completion: nil)
 	}
-    
+	
+	func showMessages(index: Int) {
+		
+		UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [], animations: { 
+			self.status.center.x += self.view.frame.width
+		}) { _ in
+			self.status.isHidden = true
+			self.status.center.x -= self.view.frame.width
+			self.label.text = self.messages[index]
+			
+			UIView.transition(with: self.status, duration: 0.3, options: [.curveEaseOut, .transitionCurlDown], animations: {
+				
+				self.status.isHidden = false
+				
+			}, completion: { _ in
+				
+				delay(seconds: 2.0, completion: { _ in
+					if index < self.messages.count - 1 {
+						self.showMessages(index: index + 1)
+					} else {
+						self.resetButton()
+					}
+				})
+			})
+		}
+	}
+	
+	func resetButton() {
+		
+		UIView.animate(withDuration: 0.33, delay: 0, options: [], animations: { 
+			
+			// reset spinner
+			self.spinner.alpha = 0.0
+			self.spinner.center = CGPoint(x: -20, y: 16)
+			
+			// reset button
+			self.loginButton.backgroundColor = UIColor(red: 160.0 / 255.0, green: 214.0 / 255.0, blue: 90.0 / 255.0, alpha: 1);
+			
+		}) { _ in
+			
+			UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: [], animations: { 
+				let b = self.loginButton.bounds
+				self.loginButton.bounds = CGRect(x: b.origin.x + 20, y: b.origin.y, width: b.width - 80, height: b.height)
+			}, completion: { _ in
+				
+			})
+		}
+	}
+	
+	func animateCloud(_ cloud: UIImageView) {
+		//animate clouds
+		let cloudSpeed = 20.0 / Double(view.frame.size.width)
+		let duration: TimeInterval = Double(view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+		
+		UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
+			//move cloud to right edge
+			cloud.frame.origin.x = self.view.bounds.size.width
+		}, completion: {_ in
+			//reset cloud
+			cloud.frame.origin.x = -self.cloud1.frame.size.width
+			self.animateCloud(cloud);
+		});
+	}
 
     /*
     // MARK: - Navigation
