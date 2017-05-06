@@ -49,7 +49,9 @@ class SecondDemoViewController: UIViewController {
 		view.addSubview(snowClipView)
 		
 		//start rotating the flights
-		changeFlightDataAnimatedTo(londonToParis)
+		delay(seconds: 2) { 
+			self.changeFlightDataAnimatedTo(londonToParis)
+		}
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -94,6 +96,8 @@ class SecondDemoViewController: UIViewController {
 		cubeTransion(label: gateNr, toText: data.gateNr, direction: data.isTakingOff ? .up : .down)
 		trasition(label: departingFrom, to: data.departingFrom, offset: CGPoint(x: data.isTakingOff ? 80 : -80, y: 0))
 		trasition(label: arrivingTo, to: data.arrivingTo, offset: CGPoint(x: 0, y: data.isTakingOff ? 50 : -50))
+		planeDepart()
+		animateStatusBannerWithKeyframes()
 		
 		//
 		// schedule next flight
@@ -187,5 +191,67 @@ class SecondDemoViewController: UIViewController {
 			
 			newLabel.removeFromSuperview()
 		}
+	}
+	
+	func planeDepart() {
+		
+		let originalCenter = planeImage.center
+		
+		UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, animations: { 
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
+				
+				self.planeImage.center.x += 80
+				self.planeImage.center.y -= 10.0
+			})
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.25, relativeDuration: 0.25, animations: {
+				self.planeImage.center.x += 100
+				self.planeImage.center.y -= 50.0
+				
+				self.planeImage.alpha = 0.0
+			})
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.4, animations: { 
+				
+				self.planeImage.transform  = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 16))
+				
+			})
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.51, relativeDuration: 0.01, animations: {
+				
+				self.planeImage.transform = CGAffineTransform.identity
+				self.planeImage.center = CGPoint(x: 0, y: originalCenter.y)
+			})
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.55, relativeDuration: 0.45, animations: {
+				
+				self.planeImage.alpha = 1.0
+				self.planeImage.center = originalCenter
+				
+			})
+			
+		}) { _ in
+			
+		}
+		
+	}
+	
+	func animateStatusBannerWithKeyframes() {
+		
+		statusBanner.center.x -= view.bounds.width
+		statusBanner.center.y -= 50.0
+		
+		UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, animations: { 
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.33, animations: { 
+				self.statusBanner.center.x += self.view.bounds.width
+			})
+			
+			UIView.addKeyframe(withRelativeStartTime: 0.33, relativeDuration: 0.66, animations: {
+				self.statusBanner.center.y += 50
+			})
+			
+		}, completion: nil)
 	}
 }
