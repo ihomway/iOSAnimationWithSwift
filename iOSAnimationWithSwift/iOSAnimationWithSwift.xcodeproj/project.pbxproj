@@ -15,6 +15,9 @@
 		CD4DA1F91EBAF3EC009C118F /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */; };
 		CD4DA1FB1EBAF490009C118F /* FirstDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA1FA1EBAF490009C118F /* FirstDemoViewController.swift */; };
 		CD4DA1FD1EBAF51D009C118F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */; };
+		CD4DA20D1EBC808F009C118F /* SecondDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA20C1EBC808F009C118F /* SecondDemoViewController.swift */; };
+		CD4DA2121EBC864A009C118F /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA2101EBC864A009C118F /* FlightData.swift */; };
+		CD4DA2131EBC864A009C118F /* SnowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA2111EBC864A009C118F /* SnowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +52,9 @@
 		CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
 		CD4DA1FA1EBAF490009C118F /* FirstDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstDemoViewController.swift; sourceTree = "<group>"; };
 		CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CD4DA20C1EBC808F009C118F /* SecondDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondDemoViewController.swift; sourceTree = "<group>"; };
+		CD4DA2101EBC864A009C118F /* FlightData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightData.swift; sourceTree = "<group>"; };
+		CD4DA2111EBC864A009C118F /* SnowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,10 +105,11 @@
 		CD4DA1C91EBAF233009C118F /* iOSAnimationWithSwift */ = {
 			isa = PBXGroup;
 			children = (
+				CD4DA20E1EBC8097009C118F /* Demo1 */,
+				CD4DA20F1EBC809D009C118F /* Demo2 */,
 				CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */,
 				CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */,
 				CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */,
-				CD4DA1FA1EBAF490009C118F /* FirstDemoViewController.swift */,
 				CD4DA1CE1EBAF233009C118F /* Main.storyboard */,
 				CD4DA1D31EBAF233009C118F /* LaunchScreen.storyboard */,
 				CD4DA1D61EBAF233009C118F /* Info.plist */,
@@ -126,6 +133,24 @@
 				CD4DA1EC1EBAF233009C118F /* Info.plist */,
 			);
 			path = iOSAnimationWithSwiftUITests;
+			sourceTree = "<group>";
+		};
+		CD4DA20E1EBC8097009C118F /* Demo1 */ = {
+			isa = PBXGroup;
+			children = (
+				CD4DA1FA1EBAF490009C118F /* FirstDemoViewController.swift */,
+			);
+			name = Demo1;
+			sourceTree = "<group>";
+		};
+		CD4DA20F1EBC809D009C118F /* Demo2 */ = {
+			isa = PBXGroup;
+			children = (
+				CD4DA2101EBC864A009C118F /* FlightData.swift */,
+				CD4DA2111EBC864A009C118F /* SnowView.swift */,
+				CD4DA20C1EBC808F009C118F /* SecondDemoViewController.swift */,
+			);
+			name = Demo2;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +291,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD4DA1F91EBAF3EC009C118F /* MainTableViewController.swift in Sources */,
+				CD4DA2121EBC864A009C118F /* FlightData.swift in Sources */,
+				CD4DA20D1EBC808F009C118F /* SecondDemoViewController.swift in Sources */,
 				CD4DA1CB1EBAF233009C118F /* AppDelegate.swift in Sources */,
 				CD4DA1FB1EBAF490009C118F /* FirstDemoViewController.swift in Sources */,
+				CD4DA2131EBC864A009C118F /* SnowView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,6 +546,7 @@
 				CD4DA1F11EBAF233009C118F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD4DA1F21EBAF233009C118F /* Build configuration list for PBXNativeTarget "iOSAnimationWithSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -526,6 +555,7 @@
 				CD4DA1F41EBAF233009C118F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CD4DA1F51EBAF233009C118F /* Build configuration list for PBXNativeTarget "iOSAnimationWithSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -534,6 +564,7 @@
 				CD4DA1F71EBAF233009C118F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
