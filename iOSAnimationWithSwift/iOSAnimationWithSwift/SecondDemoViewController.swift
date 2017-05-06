@@ -8,6 +8,11 @@
 
 import UIKit
 
+enum TransionDirection: Int {
+	case up = -1
+	case down = 1
+}
+
 class SecondDemoViewController: UIViewController {
 	
 	@IBOutlet var bgImageView: UIImageView!
@@ -44,7 +49,7 @@ class SecondDemoViewController: UIViewController {
 		view.addSubview(snowClipView)
 		
 		//start rotating the flights
-		changeFlightDataTo(londonToParis)
+		changeFlightDataAnimatedTo(londonToParis)
     }
 	
 	override func viewWillAppear(_ animated: Bool) {
@@ -81,21 +86,106 @@ class SecondDemoViewController: UIViewController {
 			self.changeFlightDataTo(data.isTakingOff ? parisToRome : londonToParis)
 		}
 	}
+	
+	func changeFlightDataAnimatedTo(_ data: FlightData) {
+		
+		fade(imageView: bgImageView, to: UIImage(named: data.weatherImageName)!, withEffect: data.showWeatherEffects)
+		cubeTransion(label: flightNr, toText: data.flightNr, direction: data.isTakingOff ? .up : .down)
+		cubeTransion(label: gateNr, toText: data.gateNr, direction: data.isTakingOff ? .up : .down)
+		trasition(label: departingFrom, to: data.departingFrom, offset: CGPoint(x: data.isTakingOff ? 80 : -80, y: 0))
+		trasition(label: arrivingTo, to: data.arrivingTo, offset: CGPoint(x: 0, y: data.isTakingOff ? 50 : -50))
+		
+		//
+		// schedule next flight
+		//
+		
+		delay(seconds: 3) {
+			self.changeFlightDataAnimatedTo(data.isTakingOff ? parisToRome : londonToParis)
+		}
+	}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	func fade(imageView: UIImageView, to image:UIImage, withEffect: Bool) {
+		let orginalFrame = imageView.frame
+		
+		let newImageView = UIImageView(image: image)
+		newImageView.frame = orginalFrame
+		newImageView.alpha = 0
+		
+		view.insertSubview(newImageView, aboveSubview: imageView)
+		
+		UIView.animate(withDuration: 1, animations: {
+			
+			imageView.alpha = 0
+			newImageView.alpha = 1
+			self.snowView.alpha = withEffect ? 1 : 0
+		}) { _ in
+			
+			imageView.alpha = 1
+			imageView.image = image
+			newImageView.removeFromSuperview()
+		}
+	}
+	
+	func cubeTransion(label: UILabel, toText: String, direction: TransionDirection) {
+		
+		let originalFrame = label.frame
+		
+		let newLabel = UILabel(frame: originalFrame)
+		newLabel.text = toText
+		newLabel.textAlignment = label.textAlignment
+		newLabel.textColor = label.textColor
+		newLabel.font = label.font
+		
+		let offset = originalFrame.height / 2 * CGFloat(direction.rawValue)
+		
+		newLabel.transform = CGAffineTransform(scaleX: 1, y: 0).concatenating(CGAffineTransform(translationX: 0, y: offset))
+		view.addSubview(newLabel)
+		
+		UIView.animate(withDuration: 0.5, animations: {
+			
+			label.transform = CGAffineTransform(scaleX: 1, y: 0.1).concatenating(CGAffineTransform(translationX: 0, y: -offset))
+			newLabel.transform = CGAffineTransform.identity
+			
+		}) { _ in
+			
+			label.text = toText
+			label.transform = CGAffineTransform.identity
+			newLabel.removeFromSuperview()
+		}
+	}
+	
+	func trasition(label: UILabel, to text: String, offset: CGPoint) {
+		
+		let originalFrame = label.frame
+		
+		let newLabel = UILabel(frame: originalFrame)
+		newLabel.text = text
+		newLabel.textAlignment = label.textAlignment
+		newLabel.textColor = label.textColor
+		newLabel.font = label.font
+		
+		newLabel.transform = CGAffineTransform(translationX: offset.x, y: offset.y)
+		newLabel.alpha = 0
+		view.addSubview(newLabel)
+		
+		
+		UIView.animate(withDuration: 0.5) { 
+			label.transform = CGAffineTransform(translationX: offset.x, y: offset.y)
+			label.alpha = 0
+		}
+		
+		UIView.animate(withDuration: 0.25, delay: 0.25, animations: { 
+			
+			newLabel.transform = CGAffineTransform.identity
+			newLabel.alpha = 1
+			
+		}) { _ in
+			
+			label.transform = CGAffineTransform.identity
+			label.alpha = 1
+			label.text = text
+			
+			newLabel.removeFromSuperview()
+		}
+	}
 }
