@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import QuartzCore
 
 func delay(seconds: Double, completion:@escaping ()->()) {
 	
@@ -66,12 +67,10 @@ class FirstDemoViewController: UIViewController {
 		
 		navigationController?.setNavigationBarHidden(true, animated: true)
 		
-		heading.center.x -= view.bounds.width
-		username.center.x -= view.bounds.width
-		password.center.x -= view.bounds.width
-		
-		loginButton.center.y += 30.0
-		loginButton.alpha = 0.0
+//		heading.layer.position.x -= view.bounds.width
+		username.layer.position.x -= view.bounds.width
+		password.layer.position.x -= view.bounds.width
+		loginButton.layer.position.y += 500
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -82,25 +81,29 @@ class FirstDemoViewController: UIViewController {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		
+		let flyRight = CABasicAnimation(keyPath: "position.x")
+		flyRight.fromValue = -view.bounds.width / 2
+		flyRight.toValue = view.bounds.width / 2
+		flyRight.duration = 0.5
+		heading.layer.add(flyRight, forKey: nil)
 		
-		UIView.animate(withDuration: 0.5, delay: 0, options:.curveEaseOut, animations: {
-			self.heading.center.x += self.view.bounds.width
-		}, completion: nil);
+		flyRight.delegate = self
+		flyRight.setValue("form", forKey: "name")
+		flyRight.setValue(username.layer, forKey: "layer")
 		
-		UIView.animate(withDuration: 0.5, delay: 0.3, options: .curveEaseOut, animations: { 
-			self.username.center.x += self.view.bounds.width
-		}, completion: nil)
+		flyRight.beginTime = CACurrentMediaTime() + 0.3
+		username.layer.add(flyRight, forKey: nil)
 		
-		UIView.animate(withDuration: 0.5, delay: 0.4, options: .curveEaseOut, animations: {
-			self.password.center.x += self.view.bounds.width
-		}, completion: nil)
+		flyRight.setValue(password.layer, forKey: "layer")
+		flyRight.beginTime = CACurrentMediaTime() + 0.4
+		password.layer.add(flyRight, forKey: nil)
 		
-		UIView.animate(withDuration: 0.5, delay: 0.5, usingSpringWithDamping: 0.5, initialSpringVelocity: 0, options: [], animations: { 
-			
-			self.loginButton.center.y -= 30.0
-			self.loginButton.alpha = 1.0
-			
-		}, completion: nil)
+		let flyUp = CABasicAnimation(keyPath: "position.y")
+		flyUp.toValue = loginButton.layer.position.y - 500
+		flyUp.duration = 1.0
+		flyUp.setValue("loginButton", forKey: "name")
+		flyUp.delegate = self
+		loginButton.layer.add(flyUp, forKey: nil)
 		
 		animateCloud(cloud1)
 		animateCloud(cloud2)
@@ -212,4 +215,25 @@ class FirstDemoViewController: UIViewController {
     }
     */
 
+}
+
+extension FirstDemoViewController: CAAnimationDelegate {
+	
+	func animationDidStart(_ anim: CAAnimation) {
+		
+	}
+	
+	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
+		let nameValue = anim.value(forKey: "name") as? String
+		
+		if let name = nameValue {
+			if name == "form" {
+				let layer = anim.value(forKey: "layer") as! CALayer
+				layer.position.x = view.bounds.width / 2
+				anim.setValue(nil, forKey: "layer")
+			} else if name == "loginButton" {
+				loginButton.layer.position.y -= 500
+			}
+		}
+	}
 }
