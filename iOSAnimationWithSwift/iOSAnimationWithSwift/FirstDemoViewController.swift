@@ -70,7 +70,8 @@ class FirstDemoViewController: UIViewController {
 //		heading.layer.position.x -= view.bounds.width
 		username.layer.position.x -= view.bounds.width
 		password.layer.position.x -= view.bounds.width
-		loginButton.layer.position.y += 500
+		loginButton.layer.position.y += 100
+		loginButton.layer.opacity = 0.0
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -98,12 +99,21 @@ class FirstDemoViewController: UIViewController {
 		flyRight.beginTime = CACurrentMediaTime() + 0.4
 		password.layer.add(flyRight, forKey: nil)
 		
+		let animationGroup = CAAnimationGroup()
+		animationGroup.beginTime = CACurrentMediaTime() + 0.5
+		animationGroup.duration = 0.5
+		animationGroup.delegate = self
+		animationGroup.setValue("loginButton", forKey: "name")
+		
 		let flyUp = CABasicAnimation(keyPath: "position.y")
-		flyUp.toValue = loginButton.layer.position.y - 500
-		flyUp.duration = 1.0
-		flyUp.setValue("loginButton", forKey: "name")
-		flyUp.delegate = self
-		loginButton.layer.add(flyUp, forKey: nil)
+		flyUp.toValue = loginButton.layer.position.y - 100
+		
+		let fade = CABasicAnimation(keyPath: "opacity")
+		fade.toValue = 1.0
+		
+		animationGroup.animations = [flyUp, fade]
+		
+		loginButton.layer.add(animationGroup, forKey: nil)
 		
 		animateCloud(cloud1)
 		animateCloud(cloud2)
@@ -116,12 +126,33 @@ class FirstDemoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 	
+	func tintBackgroundColor(layer: CALayer, toColor: UIColor) {
+		
+		let tint = CABasicAnimation(keyPath: "backgroundColor")
+		tint.toValue = toColor
+		tint.duration = 1.5
+		tint.fillMode = kCAFillModeForwards
+		layer.add(tint, forKey: nil)
+		layer.backgroundColor = toColor.cgColor
+	}
+	
+	func roundCorners(layer: CALayer, toRadius: CGFloat) {
+		let roundRect = CABasicAnimation(keyPath: "cornerRadius")
+		roundRect.toValue = toRadius
+		roundRect.duration = 1.0
+		roundRect.fillMode = kCAFillModeForwards
+		layer.add(roundRect, forKey: nil)
+		layer.cornerRadius = toRadius
+	}
+	
 	@IBAction func logAction() {
 		
-		let b = self.loginButton.bounds
+		tintBackgroundColor(layer: self.loginButton.layer, toColor: UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0))
+		roundCorners(layer: loginButton.layer, toRadius: 25)
 		
 		UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, options: [], animations: { 
 			
+			let b = self.loginButton.bounds
 			self.loginButton.bounds = CGRect(x: b.origin.x - 20, y: b.origin.y, width: b.size.width + 80, height: b.size.height)
 			
 		}, completion: { _ in
@@ -134,8 +165,7 @@ class FirstDemoViewController: UIViewController {
 			if self.status.isHidden {
 				self.loginButton.center.y += 60
 			}
-			
-			self.loginButton.backgroundColor = UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0)
+	
 			self.spinner.alpha = 1.0
 			self.spinner.center = CGPoint(x: 40, y: self.loginButton.frame.height / 2)
 			
@@ -170,14 +200,14 @@ class FirstDemoViewController: UIViewController {
 	
 	func resetButton() {
 		
+		tintBackgroundColor(layer: self.loginButton.layer, toColor: UIColor(red: 0.33, green: 0.83, blue: 0.35, alpha: 1.0))
+		roundCorners(layer: loginButton.layer, toRadius: 10)
+		
 		UIView.animate(withDuration: 0.33, delay: 0, options: [], animations: { 
 			
 			// reset spinner
 			self.spinner.alpha = 0.0
 			self.spinner.center = CGPoint(x: -20, y: 16)
-			
-			// reset button
-			self.loginButton.backgroundColor = UIColor(red: 160.0 / 255.0, green: 214.0 / 255.0, blue: 90.0 / 255.0, alpha: 1);
 			
 		}) { _ in
 			
@@ -232,7 +262,8 @@ extension FirstDemoViewController: CAAnimationDelegate {
 				layer.position.x = view.bounds.width / 2
 				anim.setValue(nil, forKey: "layer")
 			} else if name == "loginButton" {
-				loginButton.layer.position.y -= 500
+				loginButton.layer.position.y -= 100
+				loginButton.layer.opacity = 1.0
 			}
 		}
 	}
