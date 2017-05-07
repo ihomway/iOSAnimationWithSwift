@@ -54,6 +54,10 @@ class FirstDemoViewController: UIViewController {
 		status.center = loginButton.center
 		view.addSubview(status)
 		
+		status.isUserInteractionEnabled = true
+		let tap = UITapGestureRecognizer(target: self, action: #selector(FirstDemoViewController.didTapStatus))
+		status.addGestureRecognizer(tap)
+		
 		//add the status label
 		label.frame = CGRect(x: 0, y: 0, width: status.frame.size.width, height: status.frame.size.height)
 		label.font = UIFont(name: "HelveticaNeue", size: 18.0)
@@ -67,11 +71,8 @@ class FirstDemoViewController: UIViewController {
 		
 		navigationController?.setNavigationBarHidden(true, animated: true)
 		
-//		heading.layer.position.x -= view.bounds.width
 		username.layer.position.x -= view.bounds.width
 		password.layer.position.x -= view.bounds.width
-		loginButton.layer.position.y += 100
-		loginButton.layer.opacity = 0.0
 	}
 	
 	override func viewWillDisappear(_ animated: Bool) {
@@ -99,21 +100,15 @@ class FirstDemoViewController: UIViewController {
 		flyRight.beginTime = CACurrentMediaTime() + 0.4
 		password.layer.add(flyRight, forKey: nil)
 		
-		let animationGroup = CAAnimationGroup()
-		animationGroup.beginTime = CACurrentMediaTime() + 0.5
-		animationGroup.duration = 0.5
-		animationGroup.delegate = self
-		animationGroup.setValue("loginButton", forKey: "name")
-		
-		let flyUp = CABasicAnimation(keyPath: "position.y")
-		flyUp.toValue = loginButton.layer.position.y - 100
-		
-		let fade = CABasicAnimation(keyPath: "opacity")
-		fade.toValue = 1.0
-		
-		animationGroup.animations = [flyUp, fade]
-		
-		loginButton.layer.add(animationGroup, forKey: nil)
+		let loginButtonAnimation = CAKeyframeAnimation(keyPath: "position")
+		loginButtonAnimation.duration = 0.6
+		loginButtonAnimation.values = [NSValue(cgPoint: CGPoint(x: -view.frame.width / 2, y: loginButton.layer.position.y + 100)),
+									   NSValue(cgPoint: CGPoint(x: view.frame.width / 2, y: loginButton.layer.position.y + 100)),
+									   NSValue(cgPoint: CGPoint(x: view.frame.width / 2, y: loginButton.layer.position.y))]
+		loginButtonAnimation.keyTimes = [0.0, 0.5, 1.0]
+		loginButtonAnimation.isAdditive = false
+		loginButton.layer.add(loginButtonAnimation, forKey: nil)
+										
 		
 		animateCloud(cloud1)
 		animateCloud(cloud2)
@@ -218,21 +213,37 @@ class FirstDemoViewController: UIViewController {
 				
 			})
 		}
+		
+		let bounce = CAKeyframeAnimation(keyPath: "transform.rotation.z")
+		bounce.values = [0.0, -Double.pi / 8, 0.0, Double.pi / 8, 0.0]
+		bounce.keyTimes = [0.0, 0.25, 0.5, 0.75, 1.0]
+		bounce.isAdditive = true
+		bounce.repeatCount = 4
+		
+		status.layer.add(bounce, forKey: "wobble")
+	}
+	
+	func didTapStatus() {
+		
+		if let _ = status.layer.animation(forKey: "wobble") {
+			status.layer.removeAnimation(forKey: "wobble")
+		}
+		
 	}
 	
 	func animateCloud(_ cloud: UIImageView) {
 		//animate clouds
-		let cloudSpeed = 20.0 / Double(view.frame.size.width)
-		let duration: TimeInterval = Double(view.frame.size.width - cloud.frame.origin.x) * cloudSpeed
+		let cloudSpeed = 20.0 / Double(view.layer.frame.width)
+		let duration: TimeInterval = Double(view.frame.width - cloud.frame.origin.x) * cloudSpeed
 		
-		UIView.animate(withDuration: duration, delay: 0.0, options: .curveLinear, animations: {
-			//move cloud to right edge
-			cloud.frame.origin.x = self.view.bounds.size.width
-		}, completion: {_ in
-			//reset cloud
-			cloud.frame.origin.x = -self.cloud1.frame.size.width
-			self.animateCloud(cloud);
-		});
+		let cloudMove = CABasicAnimation(keyPath: "position.x")
+		cloudMove.duration = duration
+		cloudMove.toValue  = self.view.bounds.width
+		cloudMove.delegate = self
+		cloudMove.setValue("cloud", forKey: "name")
+		cloudMove.setValue(cloud, forKey: "view")
+		
+		cloud.layer.add(cloudMove, forKey: nil)
 	}
 
     /*
@@ -264,6 +275,13 @@ extension FirstDemoViewController: CAAnimationDelegate {
 			} else if name == "loginButton" {
 				loginButton.layer.position.y -= 100
 				loginButton.layer.opacity = 1.0
+			} else if name == "cloud" {
+				let cloud: UIImageView = anim.value(forKey: "view") as! UIImageView
+				cloud.frame.origin.x = -self.cloud1.frame.size.width
+				
+				delay(seconds: 0.1, completion: { 
+					self.animateCloud(cloud)
+				})
 			}
 		}
 	}
