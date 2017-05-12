@@ -10,6 +10,8 @@
 		CD482D181EC590D00054525A /* ThirdDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D171EC590D00054525A /* ThirdDemoViewController.swift */; };
 		CD482D1A1EC5912A0054525A /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD482D191EC5912A0054525A /* Arial Rounded Bold.ttf */; };
 		CD482D1C1EC5916B0054525A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D1B1EC5916B0054525A /* AvatarView.swift */; };
+		CD482D1F1EC5A4610054525A /* FourthDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D1E1EC5A4610054525A /* FourthDemoViewController.swift */; };
+		CD482D221EC5A4D40054525A /* AnimatedMaskLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D211EC5A4D40054525A /* AnimatedMaskLabel.swift */; };
 		CD4DA1CB1EBAF233009C118F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */; };
 		CD4DA1D01EBAF233009C118F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4DA1CE1EBAF233009C118F /* Main.storyboard */; };
 		CD4DA1D51EBAF233009C118F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4DA1D31EBAF233009C118F /* LaunchScreen.storyboard */; };
@@ -44,6 +46,8 @@
 		CD482D171EC590D00054525A /* ThirdDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdDemoViewController.swift; sourceTree = "<group>"; };
 		CD482D191EC5912A0054525A /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
 		CD482D1B1EC5916B0054525A /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		CD482D1E1EC5A4610054525A /* FourthDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthDemoViewController.swift; sourceTree = "<group>"; };
+		CD482D211EC5A4D40054525A /* AnimatedMaskLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedMaskLabel.swift; sourceTree = "<group>"; };
 		CD4DA1C71EBAF233009C118F /* iOSAnimationWithSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAnimationWithSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4DA1CF1EBAF233009C118F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +102,15 @@
 			name = Demo3;
 			sourceTree = "<group>";
 		};
+		CD482D1D1EC5A44D0054525A /* Demo4 */ = {
+			isa = PBXGroup;
+			children = (
+				CD482D211EC5A4D40054525A /* AnimatedMaskLabel.swift */,
+				CD482D1E1EC5A4610054525A /* FourthDemoViewController.swift */,
+			);
+			name = Demo4;
+			sourceTree = "<group>";
+		};
 		CD4DA1BE1EBAF233009C118F = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +137,7 @@
 				CD4DA20E1EBC8097009C118F /* Demo1 */,
 				CD4DA20F1EBC809D009C118F /* Demo2 */,
 				CD482D161EC590A80054525A /* Demo3 */,
+				CD482D1D1EC5A44D0054525A /* Demo4 */,
 				CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */,
 				CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */,
 				CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */,
@@ -309,6 +323,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD4DA1F91EBAF3EC009C118F /* MainTableViewController.swift in Sources */,
+				CD482D221EC5A4D40054525A /* AnimatedMaskLabel.swift in Sources */,
+				CD482D1F1EC5A4610054525A /* FourthDemoViewController.swift in Sources */,
 				CD4DA2121EBC864A009C118F /* FlightData.swift in Sources */,
 				CD4DA20D1EBC808F009C118F /* SecondDemoViewController.swift in Sources */,
 				CD4DA1CB1EBAF233009C118F /* AppDelegate.swift in Sources */,
