@@ -60,13 +60,25 @@
                                             <segue destination="B2L-Qh-169" kind="show" id="2NA-tB-w3w"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="QQv-Os-p10">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="CpR-zQ-mua" style="IBUITableViewCellStyleDefault" id="QQv-Os-p10">
                                         <rect key="frame" x="0.0" y="88" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QQv-Os-p10" id="eaI-aR-J4h">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Demo 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="CpR-zQ-mua">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="c2y-Ms-eaC" kind="show" id="5Gy-he-V3G"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -286,12 +298,79 @@
             </objects>
             <point key="canvasLocation" x="1893.5999999999999" y="1253.5232383808097"/>
         </scene>
+        <!--Third Demo View Controller-->
+        <scene sceneID="t5h-NU-ouL">
+            <objects>
+                <viewController storyboardIdentifier="ThirdDemoViewController" id="c2y-Ms-eaC" customClass="ThirdDemoViewController" customModule="iOSAnimationWithSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NT4-eG-IUJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="j4T-px-uh0"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="A9l-5n-5uy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg-boxingring" translatesAutoresizingMaskIntoConstraints="NO" id="chV-v3-FbR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Searching for opponents..." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="280" translatesAutoresizingMaskIntoConstraints="NO" id="j9h-RM-MRW">
+                                <rect key="frame" x="33" y="123" width="310" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s6q-k3-tIv">
+                                <rect key="frame" x="60" y="579" width="257" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                <color key="tintColor" red="0.90196078430000004" green="0.81989910443263436" blue="0.20475495015374023" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Search Again">
+                                    <color key="titleShadowColor" red="0.33333333333333331" green="0.33333333333333331" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionSearchAgain" destination="c2y-Ms-eaC" eventType="touchUpInside" id="V79-Gt-aYP"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BoY-qs-zwu" customClass="AvatarView" customModule="iOSAnimationWithSwift" customModuleProvider="target">
+                                <rect key="frame" x="33" y="262" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="65U-On-OeR" customClass="AvatarView" customModule="iOSAnimationWithSwift" customModuleProvider="target">
+                                <rect key="frame" x="253" y="262" width="90" height="90"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="VS." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P7H-PO-8cK">
+                                <rect key="frame" x="154" y="270" width="67" height="75"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="thin" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="myAvatar" destination="65U-On-OeR" id="jd3-tS-aFw"/>
+                        <outlet property="opponentAvatar" destination="BoY-qs-zwu" id="Js3-ZQ-BeG"/>
+                        <outlet property="searchAgain" destination="s6q-k3-tIv" id="74X-H2-vIE"/>
+                        <outlet property="status" destination="j9h-RM-MRW" id="wxG-Z8-K73"/>
+                        <outlet property="vs" destination="P7H-PO-8cK" id="hqM-dN-dQv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jKY-CM-I7c" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1893.5999999999999" y="1932.6836581709147"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ul-dD-AmM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bOJ-w6-lwl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bOJ-w6-lwl" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="is3-Tt-7MS">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="is3-Tt-7MS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -307,6 +386,7 @@
     </scenes>
     <resources>
         <image name="banner-2" width="191" height="47"/>
+        <image name="bg-boxingring" width="320" height="568"/>
         <image name="bg-snowy" width="320" height="568"/>
         <image name="bg-sunny" width="320" height="568"/>
         <image name="bg-sunny-cloud-1" width="159" height="50"/>
