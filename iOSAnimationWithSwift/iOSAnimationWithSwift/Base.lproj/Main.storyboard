@@ -354,7 +354,7 @@
                                 <rect key="frame" x="127" y="548" width="121" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <state key="normal" title="Tap to start"/>
+                                <state key="normal" title="Slide to start"/>
                                 <connections>
                                     <segue destination="vcg-Qd-gKd" kind="show" identifier="details" id="Vok-gf-Tbg"/>
                                 </connections>
@@ -466,7 +466,7 @@
         <!--Navigation Controller-->
         <scene sceneID="6ul-dD-AmM">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="bOJ-w6-lwl" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bOJ-w6-lwl" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="is3-Tt-7MS">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

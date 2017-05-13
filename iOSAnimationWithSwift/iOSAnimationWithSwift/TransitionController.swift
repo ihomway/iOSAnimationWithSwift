@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class TransitionController: NSObject, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
+class TransitionController: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, CAAnimationDelegate {
 	
 	let animationDuration = 1.0
 	var animating = false
@@ -69,6 +69,57 @@ class TransitionController: NSObject, UIViewControllerAnimatedTransitioning, CAA
 	func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
 		if let context = storedContext {
 			context.completeTransition(true)
+		}
+	}
+	
+	func handlePan(recognizer: UIPanGestureRecognizer) {
+		
+		let translation = recognizer.translation(in: recognizer.view!)
+		var progress: CGFloat = abs(translation.x / 200.0)
+		progress = min(max(progress, 0.0), 1.0)
+		
+		switch recognizer.state {
+		case .changed:
+			update(progress)
+		case .cancelled:
+			fallthrough
+		case .ended:
+			if progress < 0.5 {
+				// cancle
+				completionSpeed = 1.0 - progress
+				cancel()
+			} else {
+				// complete
+				completionSpeed = progress
+				finish()
+			}
+			
+			animating = true
+		default:
+			break
+		}
+	}
+	
+	override func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+		super.startInteractiveTransition(transitionContext)
+		
+		storedContext = transitionContext
+	}
+	
+	override func finish() {
+		super.finish()
+		
+		if let layer = storedContext?.containerView.layer {
+			layer.beginTime = CACurrentMediaTime()
+		}
+	}
+	
+	override func cancel() {
+		super.cancel()
+		
+		if let layer = storedContext?.containerView.layer {
+			layer.speed = -1
+			layer.beginTime = CACurrentMediaTime()
 		}
 	}
 }

@@ -17,6 +17,7 @@ class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINa
 	var refreshView: RefreshView!
 	let maskLayer: CAShapeLayer = RWLogoLayer.logoLayer()
 	let transition = TransitionController()
+	var isInteractive = false
 	
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,24 @@ class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINa
 		
 		view.layer.mask = nil
 		navigationController?.delegate = self
+		
+		let pan = UIPanGestureRecognizer(target: self, action: #selector(FourthDemoViewController.didPan(recognizer:)))
+		view.addGestureRecognizer(pan)
+	}
+	
+	func didPan(recognizer: UIPanGestureRecognizer) {
+		if transition.animating {
+			return
+		}
+		
+		if recognizer.state == .began {
+			isInteractive = true
+			navigationController?.popViewController(animated: true)
+		} else {
+			isInteractive = false
+		}
+		
+		transition.handlePan(recognizer: recognizer)
 	}
 
 	// MARK: Refresh view delegate
@@ -93,5 +112,10 @@ class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINa
 			return nil
 		}
 		
+	}
+	
+	func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+		
+		return (isInteractive && transition.animating == false) ? transition : nil
 	}
 }

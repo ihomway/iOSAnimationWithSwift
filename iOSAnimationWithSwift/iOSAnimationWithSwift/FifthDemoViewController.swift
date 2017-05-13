@@ -26,8 +26,8 @@ class FifthDemoViewController: UIViewController, UINavigationControllerDelegate 
 		navigationController?.delegate = self
 		
 		// add the pan gesture recognizer
-		let tap = UITapGestureRecognizer(target: self, action: #selector(FifthDemoViewController.didTap))
-		view.addGestureRecognizer(tap)
+		let pan = UIPanGestureRecognizer(target: self, action: #selector(FifthDemoViewController.didPan(recognizer:)))
+		view.addGestureRecognizer(pan)
 		
 		
 		// add the logo to the view
@@ -42,6 +42,18 @@ class FifthDemoViewController: UIViewController, UINavigationControllerDelegate 
 	//
 	// MARK: Gesture recognizer handler
 	//
+	func didPan(recognizer: UIPanGestureRecognizer) {
+		if transition.animating {
+			return
+		}
+		
+		if recognizer.state == .began {
+			performSegue(withIdentifier: "details", sender: nil)
+		} else {
+			transition.handlePan(recognizer: recognizer)
+		}
+	}
+	
 	func didTap() {
 		performSegue(withIdentifier: "details", sender: nil)
 	}
@@ -56,5 +68,15 @@ class FifthDemoViewController: UIViewController, UINavigationControllerDelegate 
 			
 			return nil
 		}
+	}
+	
+	func navigationController(_ navigationController: UINavigationController, interactionControllerFor animationController: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+		
+		if transition.animating {
+			return nil
+		} else {
+			return transition
+		}
+		
 	}
 }
