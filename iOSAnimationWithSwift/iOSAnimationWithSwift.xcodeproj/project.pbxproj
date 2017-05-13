@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD482D181EC590D00054525A /* ThirdDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D171EC590D00054525A /* ThirdDemoViewController.swift */; };
-		CD482D1A1EC5912A0054525A /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD482D191EC5912A0054525A /* Arial Rounded Bold.ttf */; };
-		CD482D1C1EC5916B0054525A /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D1B1EC5916B0054525A /* AvatarView.swift */; };
-		CD482D1F1EC5A4610054525A /* FourthDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D1E1EC5A4610054525A /* FourthDemoViewController.swift */; };
-		CD482D221EC5A4D40054525A /* AnimatedMaskLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD482D211EC5A4D40054525A /* AnimatedMaskLabel.swift */; };
+		CD255F201EBF01B700CAAF84 /* ThirdDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD255F1F1EBF01B700CAAF84 /* ThirdDemoViewController.swift */; };
+		CD255F221EBF01DD00CAAF84 /* Arial Rounded Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CD255F211EBF01DD00CAAF84 /* Arial Rounded Bold.ttf */; };
+		CD255F241EBF01ED00CAAF84 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD255F231EBF01ED00CAAF84 /* AvatarView.swift */; };
+		CD255F271EC73B0100CAAF84 /* FourthDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD255F261EC73B0100CAAF84 /* FourthDemoViewController.swift */; };
+		CD255F291EC73B3B00CAAF84 /* RefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD255F281EC73B3B00CAAF84 /* RefreshView.swift */; };
+		CD3D38C71EC74C2D00037AA2 /* FifthDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D38C61EC74C2D00037AA2 /* FifthDemoViewController.swift */; };
+		CD3D38C91EC74CAE00037AA2 /* RWLogoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D38C81EC74CAE00037AA2 /* RWLogoLayer.swift */; };
+		CD3D38CB1EC74F9000037AA2 /* TransitionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3D38CA1EC74F9000037AA2 /* TransitionController.swift */; };
 		CD4DA1CB1EBAF233009C118F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */; };
 		CD4DA1D01EBAF233009C118F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4DA1CE1EBAF233009C118F /* Main.storyboard */; };
 		CD4DA1D51EBAF233009C118F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD4DA1D31EBAF233009C118F /* LaunchScreen.storyboard */; };
@@ -43,11 +46,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		CD482D171EC590D00054525A /* ThirdDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdDemoViewController.swift; sourceTree = "<group>"; };
-		CD482D191EC5912A0054525A /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
-		CD482D1B1EC5916B0054525A /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
-		CD482D1E1EC5A4610054525A /* FourthDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthDemoViewController.swift; sourceTree = "<group>"; };
-		CD482D211EC5A4D40054525A /* AnimatedMaskLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimatedMaskLabel.swift; sourceTree = "<group>"; };
+		CD255F1F1EBF01B700CAAF84 /* ThirdDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdDemoViewController.swift; sourceTree = "<group>"; };
+		CD255F211EBF01DD00CAAF84 /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
+		CD255F231EBF01ED00CAAF84 /* AvatarView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		CD255F261EC73B0100CAAF84 /* FourthDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FourthDemoViewController.swift; sourceTree = "<group>"; };
+		CD255F281EC73B3B00CAAF84 /* RefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshView.swift; sourceTree = "<group>"; };
+		CD3D38C61EC74C2D00037AA2 /* FifthDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FifthDemoViewController.swift; sourceTree = "<group>"; };
+		CD3D38C81EC74CAE00037AA2 /* RWLogoLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RWLogoLayer.swift; sourceTree = "<group>"; };
+		CD3D38CA1EC74F9000037AA2 /* TransitionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionController.swift; sourceTree = "<group>"; };
 		CD4DA1C71EBAF233009C118F /* iOSAnimationWithSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iOSAnimationWithSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD4DA1CF1EBAF233009C118F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -92,23 +98,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		CD482D161EC590A80054525A /* Demo3 */ = {
+		CD255F1E1EBEFF4E00CAAF84 /* Demo3 */ = {
 			isa = PBXGroup;
 			children = (
-				CD482D1B1EC5916B0054525A /* AvatarView.swift */,
-				CD482D191EC5912A0054525A /* Arial Rounded Bold.ttf */,
-				CD482D171EC590D00054525A /* ThirdDemoViewController.swift */,
+				CD255F231EBF01ED00CAAF84 /* AvatarView.swift */,
+				CD255F211EBF01DD00CAAF84 /* Arial Rounded Bold.ttf */,
+				CD255F1F1EBF01B700CAAF84 /* ThirdDemoViewController.swift */,
 			);
 			name = Demo3;
 			sourceTree = "<group>";
 		};
-		CD482D1D1EC5A44D0054525A /* Demo4 */ = {
+		CD255F251EC73A8500CAAF84 /* Demo4 */ = {
 			isa = PBXGroup;
 			children = (
-				CD482D211EC5A4D40054525A /* AnimatedMaskLabel.swift */,
-				CD482D1E1EC5A4610054525A /* FourthDemoViewController.swift */,
+				CD255F281EC73B3B00CAAF84 /* RefreshView.swift */,
+				CD255F261EC73B0100CAAF84 /* FourthDemoViewController.swift */,
 			);
 			name = Demo4;
+			sourceTree = "<group>";
+		};
+		CD3D38C51EC74C1900037AA2 /* Demo5 */ = {
+			isa = PBXGroup;
+			children = (
+				CD3D38C81EC74CAE00037AA2 /* RWLogoLayer.swift */,
+				CD3D38C61EC74C2D00037AA2 /* FifthDemoViewController.swift */,
+				CD3D38CA1EC74F9000037AA2 /* TransitionController.swift */,
+			);
+			name = Demo5;
 			sourceTree = "<group>";
 		};
 		CD4DA1BE1EBAF233009C118F = {
@@ -136,8 +152,9 @@
 			children = (
 				CD4DA20E1EBC8097009C118F /* Demo1 */,
 				CD4DA20F1EBC809D009C118F /* Demo2 */,
-				CD482D161EC590A80054525A /* Demo3 */,
-				CD482D1D1EC5A44D0054525A /* Demo4 */,
+				CD255F1E1EBEFF4E00CAAF84 /* Demo3 */,
+				CD255F251EC73A8500CAAF84 /* Demo4 */,
+				CD3D38C51EC74C1900037AA2 /* Demo5 */,
 				CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */,
 				CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */,
 				CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */,
@@ -295,7 +312,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD4DA1D51EBAF233009C118F /* LaunchScreen.storyboard in Resources */,
-				CD482D1A1EC5912A0054525A /* Arial Rounded Bold.ttf in Resources */,
+				CD255F221EBF01DD00CAAF84 /* Arial Rounded Bold.ttf in Resources */,
 				CD4DA1FD1EBAF51D009C118F /* Assets.xcassets in Resources */,
 				CD4DA1D01EBAF233009C118F /* Main.storyboard in Resources */,
 			);
@@ -323,15 +340,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD4DA1F91EBAF3EC009C118F /* MainTableViewController.swift in Sources */,
-				CD482D221EC5A4D40054525A /* AnimatedMaskLabel.swift in Sources */,
-				CD482D1F1EC5A4610054525A /* FourthDemoViewController.swift in Sources */,
+				CD255F271EC73B0100CAAF84 /* FourthDemoViewController.swift in Sources */,
 				CD4DA2121EBC864A009C118F /* FlightData.swift in Sources */,
 				CD4DA20D1EBC808F009C118F /* SecondDemoViewController.swift in Sources */,
 				CD4DA1CB1EBAF233009C118F /* AppDelegate.swift in Sources */,
 				CD4DA1FB1EBAF490009C118F /* FirstDemoViewController.swift in Sources */,
-				CD482D1C1EC5916B0054525A /* AvatarView.swift in Sources */,
+				CD255F291EC73B3B00CAAF84 /* RefreshView.swift in Sources */,
+				CD3D38C71EC74C2D00037AA2 /* FifthDemoViewController.swift in Sources */,
+				CD255F241EBF01ED00CAAF84 /* AvatarView.swift in Sources */,
+				CD3D38CB1EC74F9000037AA2 /* TransitionController.swift in Sources */,
 				CD4DA2131EBC864A009C118F /* SnowView.swift in Sources */,
-				CD482D181EC590D00054525A /* ThirdDemoViewController.swift in Sources */,
+				CD255F201EBF01B700CAAF84 /* ThirdDemoViewController.swift in Sources */,
+				CD3D38C91EC74CAE00037AA2 /* RWLogoLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

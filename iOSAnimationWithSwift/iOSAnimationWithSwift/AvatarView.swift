@@ -40,7 +40,7 @@ class AvatarView: UIView {
         backgroundColor = UIColor.clear
         
         //add the initial image of the avatar view
-        let blankImage = UIImage(named: "empty.png")!
+        let blankImage = UIImage(named: "empty")!
         photoLayer.contents = blankImage.cgImage
         photoLayer.frame = CGRect(
             x: (bounds.size.width - blankImage.size.width + lineWidth)/2,
@@ -69,59 +69,54 @@ class AvatarView: UIView {
         label.textColor = UIColor.black
         addSubview(label)
     }
-	
-	func bounceOffPoint(bouncePoint: CGPoint, morphSize: CGSize) {
-		
-		let orginalCenter = center
-		
-		let morpheFrame = (orginalCenter.x > bouncePoint.x) ? CGRect(origin: CGPoint(x: 0.0, y: bounds.height - morphSize.height), size: morphSize) : CGRect(origin: CGPoint(x: bounds.width - morphSize.width, y: bounds.height - morphSize.height), size: morphSize)
-		
-		let morphaAnimation = CABasicAnimation(keyPath: "path")
-		morphaAnimation.duration = animationDuration
-		morphaAnimation.toValue = UIBezierPath(ovalIn: morpheFrame).cgPath
-		morphaAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
-		
-		circleLayer.add(morphaAnimation, forKey: nil)
-		maskLayer.add(morphaAnimation, forKey: nil)
-		
-		
-		UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, animations: { 
-			
-			self.center = bouncePoint
-			
-		}) { _ in
-			
-			if self.shouldTransitionToFinishedState {
-				self.animateToSquare()
-			}
-			
-			UIView.animate(withDuration: self.animationDuration, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 10, animations: { 
-				
-				self.center = orginalCenter
-				
-			}, completion: { _ in
-				
-				if !self.shouldTransitionToFinishedState {
-					delay(seconds: 0.1, completion: {
-						self.bounceOffPoint(bouncePoint: bouncePoint, morphSize: morphSize)
-					})
-				}
-			})
-			
-		}
-	}
-	
-	func animateToSquare() {
-		
-		let morphAnimation = CABasicAnimation(keyPath: "path")
-		morphAnimation.duration = 0.25
-		morphAnimation.fromValue = circleLayer.path
-		morphAnimation.toValue = UIBezierPath(rect: bounds).cgPath
-		morphAnimation.isRemovedOnCompletion = false
-		morphAnimation.fillMode = kCAFillModeBoth
-		
-		
-		circleLayer.add(morphAnimation, forKey: nil)
-		maskLayer.add(morphAnimation, forKey: nil)
-	}
+ 
+  func bounceOffPoint(bouncePoint: CGPoint, morphSize: CGSize) {
+    
+    let originalCenter = center
+    
+	UIView.animate(withDuration: animationDuration, delay: 0.0, usingSpringWithDamping: 0.8, initialSpringVelocity: 0, animations: {
+    
+      self.center = bouncePoint
+      
+    }, completion: {_ in
+    
+      if self.shouldTransitionToFinishedState {
+        self.animateToSquare()
+      }
+      
+		UIView.animate(withDuration: self.animationDuration, delay: 0.0, usingSpringWithDamping: 0.9, initialSpringVelocity: 10, animations: {
+      
+        self.center = originalCenter
+        
+      }, completion: {_ in
+      
+        if !self.shouldTransitionToFinishedState {
+          delay(seconds: 0.1, completion: {
+            self.bounceOffPoint(bouncePoint: bouncePoint, morphSize: morphSize)
+          })
+        }
+        
+      })
+      
+      
+    })
+    
+    let morphFrame = (originalCenter.x > bouncePoint.x) ?
+    CGRect(x: 0.0, y: bounds.height - morphSize.height, width: morphSize.width, height: morphSize.height) :
+    CGRect(x: bounds.width - morphSize.width, y: bounds.height - morphSize.height, width: morphSize.width, height: morphSize.height)
+    
+    let morphAnimation = CABasicAnimation(keyPath: "path")
+    morphAnimation.duration = animationDuration
+    morphAnimation.toValue = UIBezierPath(ovalIn: morphFrame).cgPath
+    morphAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+    
+    circleLayer.add(morphAnimation, forKey: nil)
+    maskLayer.add(morphAnimation, forKey: nil)
+    
+  }
+  
+  func animateToSquare() {
+    
+  }
+  
 }
