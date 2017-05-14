@@ -120,6 +120,26 @@
                                             <segue destination="F5P-Es-NaD" kind="show" id="Mhx-St-iLo"/>
                                         </connections>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" textLabel="iYV-l8-eOf" style="IBUITableViewCellStyleDefault" id="QFm-nz-iHQ">
+                                        <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QFm-nz-iHQ" id="rqV-Pr-hAU">
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Demo 6" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="iYV-l8-eOf">
+                                                    <rect key="frame" x="15" y="0.0" width="325" height="43.5"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JWZ-CB-GdC" kind="presentation" id="cdA-ZA-IH2"/>
+                                        </connections>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -338,6 +358,44 @@
             </objects>
             <point key="canvasLocation" x="1893.5999999999999" y="1253.5232383808097"/>
         </scene>
+        <!--Sixth Demo View Controller-->
+        <scene sceneID="MdK-QH-r9P">
+            <objects>
+                <viewController id="JWZ-CB-GdC" customClass="SixthDemoViewController" customModule="iOSAnimationWithSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3ur-En-8k2"/>
+                        <viewControllerLayoutGuide type="bottom" id="YNt-xf-eAG"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="q7R-uA-Twi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="NMN-7K-gWX">
+                                <rect key="frame" x="-84" y="0.0" width="84" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="egr-av-Jdl" kind="embed" identifier="Menu" id="1Wt-oB-3Ib"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="k24-vo-Ubm">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="aId-gK-9YF" kind="embed" identifier="Center" id="khh-Ly-xb1"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="centerContainer" destination="k24-vo-Ubm" id="WZ0-GN-myb"/>
+                        <outlet property="menuContainer" destination="NMN-7K-gWX" id="XMi-pS-btq"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H6U-mC-si1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="543.20000000000005" y="1923.6881559220392"/>
+        </scene>
         <!--Fifth Demo View Controller-->
         <scene sceneID="LO3-cl-Qge">
             <objects>
@@ -365,7 +423,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DDu-uy-cKn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="312.80000000000001" y="1923.6881559220392"/>
+            <point key="canvasLocation" x="1252" y="1923.6881559220392"/>
         </scene>
         <!--Fourth Demo View Controller-->
         <scene sceneID="C2L-tJ-YK7">
@@ -393,7 +451,78 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="boJ-vF-TlH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1039" y="1924"/>
+            <point key="canvasLocation" x="1976.8" y="1923.6881559220392"/>
+        </scene>
+        <!--Center View Controller-->
+        <scene sceneID="hlu-PE-tlL">
+            <objects>
+                <viewController id="zhD-MQ-1MI" customClass="CenterViewController" customModule="iOSAnimationWithSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1oR-AJ-rxl"/>
+                        <viewControllerLayoutGuide type="bottom" id="HWN-i8-nab"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="gMv-j1-YiL">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hPq-BY-jha">
+                                <rect key="frame" x="67" y="213" width="240" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="2b1-Nz-bJi"/>
+                    <connections>
+                        <outlet property="menuItemView" destination="hPq-BY-jha" id="TmV-ux-Evh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vkv-if-LZJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-911.20000000000005" y="1923.6881559220392"/>
+        </scene>
+        <!--Side Menu View Controller-->
+        <scene sceneID="hYI-Ot-QV4">
+            <objects>
+                <tableViewController id="egr-av-Jdl" customClass="SideMenuViewController" customModule="iOSAnimationWithSwift" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" id="3dP-29-gwF">
+                        <rect key="frame" x="0.0" y="0.0" width="84" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MenuCell" rowHeight="84" id="ZL8-4H-PtR">
+                                <rect key="frame" x="0.0" y="28" width="84" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZL8-4H-PtR" id="mwt-C5-vCE">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="83.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" tag="6" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xat-nO-aro">
+                                            <rect key="frame" x="0.0" y="0.0" width="84" height="84"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="HeaderCell" rowHeight="84" id="t9j-Vx-4cC">
+                                <rect key="frame" x="0.0" y="112" width="84" height="84"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="t9j-Vx-4cC" id="zL3-wh-EM8">
+                                    <rect key="frame" x="0.0" y="0.0" width="84" height="83.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="egr-av-Jdl" id="heE-5j-Egq"/>
+                            <outlet property="delegate" destination="egr-av-Jdl" id="3ua-os-Eai"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zGB-4b-Clj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-217.59999999999999" y="1923.6881559220392"/>
         </scene>
         <!--Third Demo View Controller-->
         <scene sceneID="C39-pQ-os2">
@@ -461,7 +590,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kBF-OZ-Y3Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1893.5999999999999" y="1923.6881559220392"/>
+            <point key="canvasLocation" x="2832.8000000000002" y="1923.6881559220392"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="6ul-dD-AmM">
@@ -481,6 +610,24 @@
             </objects>
             <point key="canvasLocation" x="133.59999999999999" y="792.95352323838085"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ph4-w4-IiE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aId-gK-9YF" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="w0B-hh-OWV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="zhD-MQ-1MI" kind="relationship" relationship="rootViewController" id="lU3-EK-nEx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CUh-Jf-e1C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1850.4000000000001" y="1923.6881559220392"/>
+        </scene>
     </scenes>
     <resources>
         <image name="banner-2" width="191" height="47"/>
@@ -496,6 +643,6 @@
         <image name="swiftLogo" width="16" height="16"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Vok-gf-Tbg"/>
+        <segue reference="UQ6-dw-gkt"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -26,6 +26,11 @@
 		CD4DA20D1EBC808F009C118F /* SecondDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA20C1EBC808F009C118F /* SecondDemoViewController.swift */; };
 		CD4DA2121EBC864A009C118F /* FlightData.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA2101EBC864A009C118F /* FlightData.swift */; };
 		CD4DA2131EBC864A009C118F /* SnowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD4DA2111EBC864A009C118F /* SnowView.swift */; };
+		CDC07DE61EC8997D00DEA8C6 /* SixthDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DE51EC8997D00DEA8C6 /* SixthDemoViewController.swift */; };
+		CDC07DEA1EC89A7E00DEA8C6 /* CenterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DE71EC89A7E00DEA8C6 /* CenterViewController.swift */; };
+		CDC07DEB1EC89A7E00DEA8C6 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DE81EC89A7E00DEA8C6 /* MenuButton.swift */; };
+		CDC07DEC1EC89A7E00DEA8C6 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DE91EC89A7E00DEA8C6 /* MenuItem.swift */; };
+		CDC07DEE1EC89AA300DEA8C6 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DED1EC89AA300DEA8C6 /* SideMenuViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +76,11 @@
 		CD4DA20C1EBC808F009C118F /* SecondDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondDemoViewController.swift; sourceTree = "<group>"; };
 		CD4DA2101EBC864A009C118F /* FlightData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlightData.swift; sourceTree = "<group>"; };
 		CD4DA2111EBC864A009C118F /* SnowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SnowView.swift; sourceTree = "<group>"; };
+		CDC07DE51EC8997D00DEA8C6 /* SixthDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SixthDemoViewController.swift; sourceTree = "<group>"; };
+		CDC07DE71EC89A7E00DEA8C6 /* CenterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterViewController.swift; sourceTree = "<group>"; };
+		CDC07DE81EC89A7E00DEA8C6 /* MenuButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuButton.swift; sourceTree = "<group>"; };
+		CDC07DE91EC89A7E00DEA8C6 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		CDC07DED1EC89AA300DEA8C6 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +165,7 @@
 				CD255F1E1EBEFF4E00CAAF84 /* Demo3 */,
 				CD255F251EC73A8500CAAF84 /* Demo4 */,
 				CD3D38C51EC74C1900037AA2 /* Demo5 */,
+				CDC07DE41EC898BE00DEA8C6 /* Demo6 */,
 				CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */,
 				CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */,
 				CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */,
@@ -199,6 +210,18 @@
 				CD4DA20C1EBC808F009C118F /* SecondDemoViewController.swift */,
 			);
 			name = Demo2;
+			sourceTree = "<group>";
+		};
+		CDC07DE41EC898BE00DEA8C6 /* Demo6 */ = {
+			isa = PBXGroup;
+			children = (
+				CDC07DE51EC8997D00DEA8C6 /* SixthDemoViewController.swift */,
+				CDC07DED1EC89AA300DEA8C6 /* SideMenuViewController.swift */,
+				CDC07DE71EC89A7E00DEA8C6 /* CenterViewController.swift */,
+				CDC07DE81EC89A7E00DEA8C6 /* MenuButton.swift */,
+				CDC07DE91EC89A7E00DEA8C6 /* MenuItem.swift */,
+			);
+			name = Demo6;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -339,18 +362,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDC07DEC1EC89A7E00DEA8C6 /* MenuItem.swift in Sources */,
 				CD4DA1F91EBAF3EC009C118F /* MainTableViewController.swift in Sources */,
 				CD255F271EC73B0100CAAF84 /* FourthDemoViewController.swift in Sources */,
 				CD4DA2121EBC864A009C118F /* FlightData.swift in Sources */,
 				CD4DA20D1EBC808F009C118F /* SecondDemoViewController.swift in Sources */,
+				CDC07DE61EC8997D00DEA8C6 /* SixthDemoViewController.swift in Sources */,
 				CD4DA1CB1EBAF233009C118F /* AppDelegate.swift in Sources */,
 				CD4DA1FB1EBAF490009C118F /* FirstDemoViewController.swift in Sources */,
 				CD255F291EC73B3B00CAAF84 /* RefreshView.swift in Sources */,
 				CD3D38C71EC74C2D00037AA2 /* FifthDemoViewController.swift in Sources */,
+				CDC07DEA1EC89A7E00DEA8C6 /* CenterViewController.swift in Sources */,
 				CD255F241EBF01ED00CAAF84 /* AvatarView.swift in Sources */,
 				CD3D38CB1EC74F9000037AA2 /* TransitionController.swift in Sources */,
+				CDC07DEB1EC89A7E00DEA8C6 /* MenuButton.swift in Sources */,
 				CD4DA2131EBC864A009C118F /* SnowView.swift in Sources */,
 				CD255F201EBF01B700CAAF84 /* ThirdDemoViewController.swift in Sources */,
+				CDC07DEE1EC89AA300DEA8C6 /* SideMenuViewController.swift in Sources */,
 				CD3D38C91EC74CAE00037AA2 /* RWLogoLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
