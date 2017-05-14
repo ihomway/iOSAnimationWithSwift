@@ -33,6 +33,7 @@
 		CDC07DEB1EC89A7E00DEA8C6 /* MenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DE81EC89A7E00DEA8C6 /* MenuButton.swift */; };
 		CDC07DEC1EC89A7E00DEA8C6 /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DE91EC89A7E00DEA8C6 /* MenuItem.swift */; };
 		CDC07DEE1EC89AA300DEA8C6 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DED1EC89AA300DEA8C6 /* SideMenuViewController.swift */; };
+		CDC07DF51EC8B18100DEA8C6 /* SeventhDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDC07DF41EC8B18100DEA8C6 /* SeventhDemoViewController.swift */; };
 		F599B5951081F11E8C6AFF3C /* Pods_iOSAnimationWithSwiftTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0B270545D788B5F27D19E1C /* Pods_iOSAnimationWithSwiftTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		CDC07DE91EC89A7E00DEA8C6 /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		CDC07DED1EC89AA300DEA8C6 /* SideMenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		CDC07DEF1EC8B08100DEA8C6 /* iOSAnimationWithSwift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "iOSAnimationWithSwift-Bridging-Header.h"; sourceTree = "<group>"; };
+		CDC07DF41EC8B18100DEA8C6 /* SeventhDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SeventhDemoViewController.swift; sourceTree = "<group>"; };
 		F0B270545D788B5F27D19E1C /* Pods_iOSAnimationWithSwiftTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iOSAnimationWithSwiftTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -207,6 +209,7 @@
 				CD255F251EC73A8500CAAF84 /* Demo4 */,
 				CD3D38C51EC74C1900037AA2 /* Demo5 */,
 				CDC07DE41EC898BE00DEA8C6 /* Demo6 */,
+				CDC07DF31EC8B16500DEA8C6 /* Demo7 */,
 				CD4DA1FC1EBAF51D009C118F /* Assets.xcassets */,
 				CD4DA1CA1EBAF233009C118F /* AppDelegate.swift */,
 				CD4DA1F81EBAF3EC009C118F /* MainTableViewController.swift */,
@@ -264,6 +267,14 @@
 				CDC07DE91EC89A7E00DEA8C6 /* MenuItem.swift */,
 			);
 			name = Demo6;
+			sourceTree = "<group>";
+		};
+		CDC07DF31EC8B16500DEA8C6 /* Demo7 */ = {
+			isa = PBXGroup;
+			children = (
+				CDC07DF41EC8B18100DEA8C6 /* SeventhDemoViewController.swift */,
+			);
+			name = Demo7;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -567,6 +578,7 @@
 				CD3D38CB1EC74F9000037AA2 /* TransitionController.swift in Sources */,
 				CDC07DEB1EC89A7E00DEA8C6 /* MenuButton.swift in Sources */,
 				CD4DA2131EBC864A009C118F /* SnowView.swift in Sources */,
+				CDC07DF51EC8B18100DEA8C6 /* SeventhDemoViewController.swift in Sources */,
 				CD255F201EBF01B700CAAF84 /* ThirdDemoViewController.swift in Sources */,
 				CDC07DEE1EC89AA300DEA8C6 /* SideMenuViewController.swift in Sources */,
 				CD3D38C91EC74CAE00037AA2 /* RWLogoLayer.swift in Sources */,
