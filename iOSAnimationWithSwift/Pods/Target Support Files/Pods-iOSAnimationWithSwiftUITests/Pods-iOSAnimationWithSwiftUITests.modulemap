@@ -1,0 +1,6 @@
+framework module Pods_iOSAnimationWithSwiftUITests {
+  umbrella header "Pods-iOSAnimationWithSwiftUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
