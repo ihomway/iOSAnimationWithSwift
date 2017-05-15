@@ -9,7 +9,7 @@
 import UIKit
 import pop
 
-class SeventhDemoViewController: UIViewController {
+class SeventhDemoViewController: UIViewController, POPAnimationDelegate {
 
 	@IBOutlet var door: UIImageView!
 	@IBOutlet var ball: UIImageView!
@@ -47,6 +47,21 @@ class SeventhDemoViewController: UIViewController {
 	func didPan(pan: UIPanGestureRecognizer) {
 		print("Panning...")
 		
+		switch pan.state {
+		case .began:
+			ball.pop_removeAllAnimations()
+		case .changed:
+			ball.center = pan.location(in: view)
+		case .ended:
+			let velocity = pan.velocity(in: pan.view!)
+			let animation = POPDecayAnimation(propertyNamed: kPOPViewCenter)!
+			animation.fromValue = NSValue(cgPoint: ball.center)
+			animation.velocity = NSValue(cgPoint: velocity)
+			animation.delegate = self
+			ball.pop_add(animation, forKey: nil)
+			
+		default: break
+		}
 	}
 	
 	func fadeIn(view: UIView) {
@@ -64,5 +79,17 @@ class SeventhDemoViewController: UIViewController {
 		ball.center = CGPoint(x: randomX * view.frame.size.width, y: 380.0)
 	}
 
-
+	func pop_animationDidStop(_ anim: POPAnimation!, finished: Bool) {
+		if finished {
+			resetBall()
+		}
+	}
+	
+	func pop_animationDidApply(_ anim: POPAnimation!) {
+		if door.frame.contains(ball.center) {
+			ball.pop_removeAllAnimations()
+			resetBall()
+			print("GOAL")
+		}
+	}
 }
