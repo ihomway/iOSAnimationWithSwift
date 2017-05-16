@@ -10,7 +10,7 @@ import UIKit
 import pop
 
 class SeventhDemoViewController: UIViewController, POPAnimationDelegate {
-
+	
 	@IBOutlet var door: UIImageView!
 	@IBOutlet var ball: UIImageView!
 	
@@ -97,7 +97,7 @@ class SeventhDemoViewController: UIViewController, POPAnimationDelegate {
 		animation.springBounciness = 20.0;
 		animation.springSpeed = 15;
 		animation.completionBlock = {_, _ in
-			UIView.animate(withDuration: 0.5, animations: { 
+			UIView.animate(withDuration: 0.5, animations: {
 				label.alpha = 0.0
 			}, completion: {_ in
 				label.removeFromSuperview()
@@ -106,7 +106,7 @@ class SeventhDemoViewController: UIViewController, POPAnimationDelegate {
 		
 		label.pop_add(animation, forKey: nil)
 	}
-
+	
 	func pop_animationDidStop(_ anim: POPAnimation!, finished: Bool) {
 		if finished {
 			resetBall()
