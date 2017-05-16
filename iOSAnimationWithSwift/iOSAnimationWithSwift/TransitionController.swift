@@ -16,7 +16,7 @@ class TransitionController: UIPercentDrivenInteractiveTransition, UIViewControll
 	var operation: UINavigationControllerOperation = .push
 	
 	weak var storedContext: UIViewControllerContextTransitioning? = nil
-
+	
 	func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
 		
 		return animationDuration
@@ -56,7 +56,7 @@ class TransitionController: UIPercentDrivenInteractiveTransition, UIViewControll
 			
 			transitionContext.containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
 			
-			UIView.animate(withDuration: animationDuration, animations: { 
+			UIView.animate(withDuration: animationDuration, animations: {
 				fromVC.view.transform = CGAffineTransform(scaleX: 0.01, y: 0.01)
 			}, completion: { _ in
 				

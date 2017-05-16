@@ -10,17 +10,17 @@ import UIKit
 import pop
 
 class SeventhDemoViewController: UIViewController {
-
+	
 	@IBOutlet var door: UIImageView!
 	@IBOutlet var ball: UIImageView!
 	
 	var playingRect: CGRect!
 	var observeBounds = true
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
 		ball.isUserInteractionEnabled = true
 		ball.addGestureRecognizer(
 			UIPanGestureRecognizer(target: self, action: #selector(SeventhDemoViewController.didPan(pan:)))
@@ -29,8 +29,8 @@ class SeventhDemoViewController: UIViewController {
 		ball.addObserver(self, forKeyPath: "alpha", options: .new, context: nil)
 		ball.alpha = 0.0
 		
-    }
-
+	}
+	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
@@ -63,6 +63,6 @@ class SeventhDemoViewController: UIViewController {
 		let randomX = CGFloat(Float(arc4random()) / 0xFFFFFFFF)
 		ball.center = CGPoint(x: randomX * view.frame.size.width, y: 380.0)
 	}
-
-
+	
+	
 }

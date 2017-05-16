@@ -30,11 +30,11 @@ class SecondDemoViewController: UIViewController {
 	@IBOutlet var statusBanner: UIImageView!
 	
 	var snowView: SnowView!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
 		
 		//adjust ui
 		statusBanner.addSubview(flightStatus)
@@ -49,10 +49,10 @@ class SecondDemoViewController: UIViewController {
 		view.addSubview(snowClipView)
 		
 		//start rotating the flights
-		delay(seconds: 2) { 
+		delay(seconds: 2) {
 			self.changeFlightDataAnimatedTo(londonToParis)
 		}
-    }
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -107,7 +107,7 @@ class SecondDemoViewController: UIViewController {
 			self.changeFlightDataAnimatedTo(data.isTakingOff ? parisToRome : londonToParis)
 		}
 	}
-
+	
 	func fade(imageView: UIImageView, to image:UIImage, withEffect: Bool) {
 		let orginalFrame = imageView.frame
 		
@@ -173,12 +173,12 @@ class SecondDemoViewController: UIViewController {
 		view.addSubview(newLabel)
 		
 		
-		UIView.animate(withDuration: 0.5) { 
+		UIView.animate(withDuration: 0.5) {
 			label.transform = CGAffineTransform(translationX: offset.x, y: offset.y)
 			label.alpha = 0
 		}
 		
-		UIView.animate(withDuration: 0.25, delay: 0.25, animations: { 
+		UIView.animate(withDuration: 0.25, delay: 0.25, animations: {
 			
 			newLabel.transform = CGAffineTransform.identity
 			newLabel.alpha = 1
@@ -197,7 +197,7 @@ class SecondDemoViewController: UIViewController {
 		
 		let originalCenter = planeImage.center
 		
-		UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, animations: { 
+		UIView.animateKeyframes(withDuration: 1.5, delay: 0.0, animations: {
 			
 			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.25, animations: {
 				
@@ -212,7 +212,7 @@ class SecondDemoViewController: UIViewController {
 				self.planeImage.alpha = 0.0
 			})
 			
-			UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.4, animations: { 
+			UIView.addKeyframe(withRelativeStartTime: 0.1, relativeDuration: 0.4, animations: {
 				
 				self.planeImage.transform  = CGAffineTransform(rotationAngle: CGFloat(-Double.pi / 16))
 				
@@ -242,9 +242,9 @@ class SecondDemoViewController: UIViewController {
 		statusBanner.center.x -= view.bounds.width
 		statusBanner.center.y -= 50.0
 		
-		UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, animations: { 
+		UIView.animateKeyframes(withDuration: 1.0, delay: 0.0, animations: {
 			
-			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.33, animations: { 
+			UIView.addKeyframe(withRelativeStartTime: 0.0, relativeDuration: 0.33, animations: {
 				self.statusBanner.center.x += self.view.bounds.width
 			})
 			

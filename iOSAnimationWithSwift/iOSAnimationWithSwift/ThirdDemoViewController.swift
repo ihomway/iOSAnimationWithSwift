@@ -10,7 +10,7 @@ import UIKit
 import QuartzCore
 
 class ThirdDemoViewController: UIViewController {
-
+	
 	let arialRounded = UIFont(name: "ArialRoundedMTBold", size: 36.0)
 	
 	@IBOutlet var myAvatar: AvatarView!
@@ -20,9 +20,9 @@ class ThirdDemoViewController: UIViewController {
 	@IBOutlet var vs: UILabel!
 	@IBOutlet var searchAgain: UIButton!
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
 		//initial setup
 		myAvatar.name = "Me"
 		myAvatar.image = UIImage(named: "avatar-1")
@@ -33,8 +33,8 @@ class ThirdDemoViewController: UIViewController {
 		
 		vs.alpha = 0.0
 		searchAgain.alpha = 0.0
-    }
-
+	}
+	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		searchForOpponent()
@@ -77,5 +77,5 @@ class ThirdDemoViewController: UIViewController {
 	@IBAction func actionSearchAgain() {
 		UIApplication.shared.keyWindow!.rootViewController = storyboard?.instantiateViewController(withIdentifier: "ViewController")
 	}
-
+	
 }

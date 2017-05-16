@@ -13,14 +13,14 @@ let kRefreshViewHeight:CGFloat = 110.0
 let packItems = ["Icecream money", "Great weather", "Beach ball", "Swim suit for him", "Swim suit for her", "Beach games", "Ironing board", "Cocktail mood", "Sunglasses", "Flip flops"]
 
 class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINavigationControllerDelegate {
-
+	
 	var refreshView: RefreshView!
 	let maskLayer: CAShapeLayer = RWLogoLayer.logoLayer()
 	let transition = TransitionController()
 	var isInteractive = false
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 		
 		self.title = "Vacation pack list"
 		self.view.backgroundColor = UIColor(red: 0.0, green: 154.0/255.0, blue: 222.0/255.0, alpha: 1.0)
@@ -33,7 +33,7 @@ class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINa
 		
 		maskLayer.position = CGPoint(x: view.layer.bounds.width / 2.0, y: view.layer.bounds.height / 2.0)
 		view.layer.mask = maskLayer
-    }
+	}
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
@@ -59,7 +59,7 @@ class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINa
 		
 		transition.handlePan(recognizer: recognizer)
 	}
-
+	
 	// MARK: Refresh view delegate
 	
 	func refreshViewDidRefresh(refreshView: RefreshView) {
@@ -75,20 +75,20 @@ class FourthDemoViewController: UITableViewController, RefreshViewDelegate, UINa
 	}
 	
 	override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-
+		
 		refreshView.scrollViewWillEndDragging(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
 	}
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 10
-    }
+	// MARK: - Table view data source
+	
+	override func numberOfSections(in tableView: UITableView) -> Int {
+		// #warning Incomplete implementation, return the number of sections
+		return 1
+	}
+	
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		// #warning Incomplete implementation, return the number of rows
+		return 10
+	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)

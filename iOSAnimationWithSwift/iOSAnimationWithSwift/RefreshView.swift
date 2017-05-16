@@ -13,32 +13,32 @@ import Foundation
 // MARK: Refresh View Delegate Protocol
 
 protocol RefreshViewDelegate {
-    func refreshViewDidRefresh(refreshView: RefreshView)
+	func refreshViewDidRefresh(refreshView: RefreshView)
 }
 
 // MARK: Refresh View
 
 class RefreshView: UIView, UIScrollViewDelegate {
-    
-    var delegate: RefreshViewDelegate?
-    var scrollView: UIScrollView?
-    var refreshing: Bool = false
-    var progress: CGFloat = 0.0
-    
-    var isRefreshing = false
-    
-    let ovalShapeLayer: CAShapeLayer = CAShapeLayer()
-    let airplaneLayer: CALayer = CALayer()
-    let textLayer = CATextLayer()
-    
-    init(frame: CGRect, scrollView: UIScrollView) {
-        super.init(frame: frame)
-
-        self.scrollView = scrollView
-
-        //add the background
-        
-        addSubview(UIImageView(image: UIImage(named: "refresh-view-bg")))
+	
+	var delegate: RefreshViewDelegate?
+	var scrollView: UIScrollView?
+	var refreshing: Bool = false
+	var progress: CGFloat = 0.0
+	
+	var isRefreshing = false
+	
+	let ovalShapeLayer: CAShapeLayer = CAShapeLayer()
+	let airplaneLayer: CALayer = CALayer()
+	let textLayer = CATextLayer()
+	
+	init(frame: CGRect, scrollView: UIScrollView) {
+		super.init(frame: frame)
+		
+		self.scrollView = scrollView
+		
+		//add the background
+		
+		addSubview(UIImageView(image: UIImage(named: "refresh-view-bg")))
 		
 		ovalShapeLayer.strokeColor = UIColor.white.cgColor
 		ovalShapeLayer.fillColor = UIColor.clear.cgColor
@@ -51,7 +51,7 @@ class RefreshView: UIView, UIScrollViewDelegate {
 			y: frame.height / 2 - refreshRadius,
 			width: 2 * refreshRadius,
 			height: 2 * refreshRadius)
-		).cgPath
+			).cgPath
 		layer.addSublayer(ovalShapeLayer)
 		
 		let airplaneImage = UIImage(named: "icon-plane")!
@@ -60,13 +60,13 @@ class RefreshView: UIView, UIScrollViewDelegate {
 		airplaneLayer.bounds = CGRect(x: 0, y: 0, width: airplaneImage.size.width, height: airplaneImage.size.height)
 		airplaneLayer.position = CGPoint(x: frame.width / 2 + frame.height / 2.0 * 0.8, y: frame.height / 2.0)
 		layer.addSublayer(airplaneLayer)
-    }
+	}
 	
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
 	}
-    
-    // MARK: Scroll View Delegate methods
+	
+	// MARK: Scroll View Delegate methods
 	
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let offsetY = CGFloat( max(-(scrollView.contentOffset.y + scrollView.contentInset.top), 0.0))
@@ -80,27 +80,27 @@ class RefreshView: UIView, UIScrollViewDelegate {
 	
 	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		if !isRefreshing && self.progress >= 1.0 {
-            delegate?.refreshViewDidRefresh(refreshView: self)
-            beginRefreshing()
-        }
+			delegate?.refreshViewDidRefresh(refreshView: self)
+			beginRefreshing()
+		}
 	}
-   
-    // MARK: animate the Refresh View
+	
+	// MARK: animate the Refresh View
 	
 	func redrawFromProgress() {
 		
 		ovalShapeLayer.strokeEnd = self.progress
 		airplaneLayer.opacity = Float(self.progress)
 	}
-    
-    func beginRefreshing() {
-        isRefreshing = true
-        
-        UIView.animate(withDuration: 0.3, animations: {
-            var newInsets = self.scrollView!.contentInset
-            newInsets.top += self.frame.size.height
-            self.scrollView!.contentInset = newInsets
-            })
+	
+	func beginRefreshing() {
+		isRefreshing = true
+		
+		UIView.animate(withDuration: 0.3, animations: {
+			var newInsets = self.scrollView!.contentInset
+			newInsets.top += self.frame.size.height
+			self.scrollView!.contentInset = newInsets
+		})
 		
 		let strokeStartAnimation = CABasicAnimation(keyPath: "strokeStart")
 		strokeStartAnimation.fromValue = -0.5
@@ -132,18 +132,18 @@ class RefreshView: UIView, UIScrollViewDelegate {
 		flightAnimationGroup.animations = [flightAnimation, airplaneOrientationAnimation]
 		
 		airplaneLayer.add(flightAnimationGroup, forKey: nil)
-    }
-    
-    func endRefreshing() {
-        
-        isRefreshing = false
-
+	}
+	
+	func endRefreshing() {
+		
+		isRefreshing = false
+		
 		UIView.animate(withDuration: 0.3, delay:0.0, options: .curveEaseOut ,animations: {
-            var newInsets = self.scrollView!.contentInset
-            newInsets.top -= self.frame.size.height
-            self.scrollView!.contentInset = newInsets
-        }, completion: {_ in
-            //finished
-        })
-    }
+			var newInsets = self.scrollView!.contentInset
+			newInsets.top -= self.frame.size.height
+			self.scrollView!.contentInset = newInsets
+		}, completion: {_ in
+			//finished
+		})
+	}
 }

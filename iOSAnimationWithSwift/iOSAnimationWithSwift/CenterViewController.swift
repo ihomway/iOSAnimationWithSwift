@@ -9,34 +9,34 @@
 import UIKit
 
 class CenterViewController: UIViewController {
-  
-  var menuItem: MenuItem! {
-    didSet {
-      title = menuItem.name
-      view.backgroundColor = menuItem.color
-      menuItemView?.image = menuItem.mainImage
-    }
-  }
-  
-  @IBOutlet var menuItemView:UIImageView?
-  
-  // MARK: ViewController
-  
-  var menuButton: MenuButton!
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    
-    menuButton = MenuButton()
-    menuButton.tapHandler = {
-      if let containerVC = self.navigationController?.parent as? SixthDemoViewController {
-        containerVC.toggleSideMenu()
-      }
-    }
-    
-    navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
-    
-    menuItem = MenuItem.sharedItems.first!
-  }
-
+	
+	var menuItem: MenuItem! {
+		didSet {
+			title = menuItem.name
+			view.backgroundColor = menuItem.color
+			menuItemView?.image = menuItem.mainImage
+		}
+	}
+	
+	@IBOutlet var menuItemView:UIImageView?
+	
+	// MARK: ViewController
+	
+	var menuButton: MenuButton!
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		menuButton = MenuButton()
+		menuButton.tapHandler = {
+			if let containerVC = self.navigationController?.parent as? SixthDemoViewController {
+				containerVC.toggleSideMenu()
+			}
+		}
+		
+		navigationItem.leftBarButtonItem = UIBarButtonItem(customView: menuButton)
+		
+		menuItem = MenuItem.sharedItems.first!
+	}
+	
 }

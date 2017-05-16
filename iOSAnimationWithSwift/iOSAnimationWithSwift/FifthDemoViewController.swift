@@ -9,17 +9,17 @@
 import UIKit
 
 class FifthDemoViewController: UIViewController, UINavigationControllerDelegate {
-
+	
 	let logo = RWLogoLayer.logoLayer()
 	let transition = TransitionController()
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
 		title = "Start"
-    }
-
+	}
+	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 		
@@ -57,7 +57,7 @@ class FifthDemoViewController: UIViewController, UINavigationControllerDelegate 
 	func didTap() {
 		performSegue(withIdentifier: "details", sender: nil)
 	}
-
+	
 	func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
 		
 		if operation == .push {

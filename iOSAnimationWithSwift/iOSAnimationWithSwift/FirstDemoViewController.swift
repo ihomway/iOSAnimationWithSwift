@@ -34,11 +34,11 @@ class FirstDemoViewController: UIViewController {
 	let status = UIImageView(image: UIImage(named: "banner"))
 	let label = UILabel()
 	let messages = ["Connecting ...", "Authorization ...", "Sending credentials ...", "Failed"]
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
 		
 		loginButton.layer.cornerRadius = 8.0
 		loginButton.layer.masksToBounds = true
@@ -64,7 +64,7 @@ class FirstDemoViewController: UIViewController {
 		label.textColor = UIColor(red: 228.0/255.0, green: 98.0/255.0, blue: 0.0, alpha: 1.0)
 		label.textAlignment = .center
 		status.addSubview(label)
-    }
+	}
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -103,23 +103,23 @@ class FirstDemoViewController: UIViewController {
 		let loginButtonAnimation = CAKeyframeAnimation(keyPath: "position")
 		loginButtonAnimation.duration = 0.6
 		loginButtonAnimation.values = [NSValue(cgPoint: CGPoint(x: -view.frame.width / 2, y: loginButton.layer.position.y + 100)),
-									   NSValue(cgPoint: CGPoint(x: view.frame.width / 2, y: loginButton.layer.position.y + 100)),
-									   NSValue(cgPoint: CGPoint(x: view.frame.width / 2, y: loginButton.layer.position.y))]
+		                               NSValue(cgPoint: CGPoint(x: view.frame.width / 2, y: loginButton.layer.position.y + 100)),
+		                               NSValue(cgPoint: CGPoint(x: view.frame.width / 2, y: loginButton.layer.position.y))]
 		loginButtonAnimation.keyTimes = [0.0, 0.5, 1.0]
 		loginButtonAnimation.isAdditive = false
 		loginButton.layer.add(loginButtonAnimation, forKey: nil)
-										
+		
 		
 		animateCloud(cloud1)
 		animateCloud(cloud2)
 		animateCloud(cloud3)
 		animateCloud(cloud4)
 	}
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	
+	override func didReceiveMemoryWarning() {
+		super.didReceiveMemoryWarning()
+		// Dispose of any resources that can be recreated.
+	}
 	
 	func tintBackgroundColor(layer: CALayer, toColor: UIColor) {
 		
@@ -145,7 +145,7 @@ class FirstDemoViewController: UIViewController {
 		tintBackgroundColor(layer: self.loginButton.layer, toColor: UIColor(red: 0.85, green: 0.83, blue: 0.45, alpha: 1.0))
 		roundCorners(layer: loginButton.layer, toRadius: 25)
 		
-		UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, options: [], animations: { 
+		UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 20, options: [], animations: {
 			
 			let b = self.loginButton.bounds
 			self.loginButton.bounds = CGRect(x: b.origin.x - 20, y: b.origin.y, width: b.size.width + 80, height: b.size.height)
@@ -160,7 +160,7 @@ class FirstDemoViewController: UIViewController {
 			if self.status.isHidden {
 				self.loginButton.center.y += 60
 			}
-	
+			
 			self.spinner.alpha = 1.0
 			self.spinner.center = CGPoint(x: 40, y: self.loginButton.frame.height / 2)
 			
@@ -169,7 +169,7 @@ class FirstDemoViewController: UIViewController {
 	
 	func showMessages(index: Int) {
 		
-		UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [], animations: { 
+		UIView.animate(withDuration: 0.33, delay: 0.0, usingSpringWithDamping: 1.0, initialSpringVelocity: 0, options: [], animations: {
 			self.status.center.x += self.view.frame.width
 		}) { _ in
 			self.status.isHidden = true
@@ -198,7 +198,7 @@ class FirstDemoViewController: UIViewController {
 		tintBackgroundColor(layer: self.loginButton.layer, toColor: UIColor(red: 0.33, green: 0.83, blue: 0.35, alpha: 1.0))
 		roundCorners(layer: loginButton.layer, toRadius: 10)
 		
-		UIView.animate(withDuration: 0.33, delay: 0, options: [], animations: { 
+		UIView.animate(withDuration: 0.33, delay: 0, options: [], animations: {
 			
 			// reset spinner
 			self.spinner.alpha = 0.0
@@ -206,7 +206,7 @@ class FirstDemoViewController: UIViewController {
 			
 		}) { _ in
 			
-			UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: [], animations: { 
+			UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.2, initialSpringVelocity: 10, options: [], animations: {
 				let b = self.loginButton.bounds
 				self.loginButton.bounds = CGRect(x: b.origin.x + 20, y: b.origin.y, width: b.width - 80, height: b.height)
 			}, completion: { _ in
@@ -245,17 +245,17 @@ class FirstDemoViewController: UIViewController {
 		
 		cloud.layer.add(cloudMove, forKey: nil)
 	}
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+	
+	/*
+	// MARK: - Navigation
+	
+	// In a storyboard-based application, you will often want to do a little preparation before navigation
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+	// Get the new view controller using segue.destinationViewController.
+	// Pass the selected object to the new view controller.
+	}
+	*/
+	
 }
 
 extension FirstDemoViewController: CAAnimationDelegate {
@@ -279,7 +279,7 @@ extension FirstDemoViewController: CAAnimationDelegate {
 				let cloud: UIImageView = anim.value(forKey: "view") as! UIImageView
 				cloud.frame.origin.x = -self.cloud1.frame.size.width
 				
-				delay(seconds: 0.1, completion: { 
+				delay(seconds: 0.1, completion: {
 					self.animateCloud(cloud)
 				})
 			}

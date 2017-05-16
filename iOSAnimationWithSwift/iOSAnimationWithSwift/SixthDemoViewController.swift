@@ -22,10 +22,10 @@ class SixthDemoViewController: UIViewController {
 	
 	var isOpening = false
 	
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		// Do any additional setup after loading the view.
 		view.backgroundColor = UIColor.black
 		
 		menuContainer.layer.anchorPoint = CGPoint(x:1.0, y: 0.5)
@@ -37,8 +37,8 @@ class SixthDemoViewController: UIViewController {
 		(menuViewController as! SideMenuViewController).centerViewController = (centerViewController as! CenterViewController)
 		
 		setToPercent(percent: 0.0)
-    }
-
+	}
+	
 	func handleGesture(recognizer:UIPanGestureRecognizer) {
 		
 		let translation = recognizer.translation(in: recognizer.view!.superview!)
@@ -91,7 +91,7 @@ class SixthDemoViewController: UIViewController {
 	
 	func setToPercent(percent: CGFloat) {
 		centerContainer.frame.origin.x = menuWidth * CGFloat(percent)
-//		menuContainer.frame.origin.x = menuWidth * CGFloat(percent) - menuWidth
+		//		menuContainer.frame.origin.x = menuWidth * CGFloat(percent) - menuWidth
 		menuContainer.layer.transform = menuTansformForPercent(percent: percent)
 		menuContainer.alpha = max(0.2, percent);
 		
@@ -115,7 +115,7 @@ class SixthDemoViewController: UIViewController {
 		
 		return CATransform3DConcat(rotationTransform, translationTransform)
 	}
-
+	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		guard let identifier = segue.identifier else {
 			return
